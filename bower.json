@@ -1,0 +1,25 @@
+{
+  "name": "migrate-from-md",
+  "homepage": "https://github.com/eagle7410/migrate-from-md",
+  "authors": [
+    "Igor Stcherbina"
+  ],
+  "description": "Create migrate from mark-down files for yii2.",
+  "main": "src/ig.file.parse.js",
+  "keywords": [
+    "migrate",
+    "Yii2"
+  ],
+  "version": "1.0.0",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eagle7410/migrate-from-md"
+  },
+  "bugs": {
+    "url": "https://github.com/eagle7410/migrate-from-md/issues"
+  },
+  "dependencies": {
+    "jquery": "^3.1.1"
+  }
+}
