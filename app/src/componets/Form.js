@@ -8,6 +8,16 @@ import { save } from '../utils/Req';
 
 // TODO clear
 const prefix = 'http://localhost:3001/';
+const codes = {
+	1 : 'No exists path',
+	2 : 'No data in request',
+	3 : 'No path in request',
+	4 : 'No name space in request',
+	5 : 'Bad structure for create',
+	6 : 'Error in create content for files',
+	7 : 'No saved files',
+	8 : 'One or mare files not be saved'
+};
 
 import Marked from 'marked';
 export default class Form extends Component {
@@ -71,17 +81,42 @@ export default class Form extends Component {
 		data.nameSpace = ns;
 
 		let  { nameSpace , path, struct } = data;
-
-		save(prefix + 'migration', {
+		//TODO IGOR: clear
+		console.log('Data is', {
 			path      : path,
 			struct    : struct,
 			nameSpace : nameSpace
+		});
+
+		save(prefix + 'migration', {
+			path      : path,
+			struct    : JSON.stringify(struct),
+			nameSpace : nameSpace
 		}).then(r => {
-				//TODO IGOR: clear
-				console.log('Sucess', r );
+				let state = { success : false };
+
+				if (r.status === 'OK') {
+					state.sucess = true;
+
+					if (r.noUsed && r.noUsed.length) {
+						state.warn = r.noUsed;
+					}
+
+
+				} else {
+					state.error = true;
+					state.message = (r.code && codes[r.code]) ? codes[r.code] : 'Error saved.';
+				}
+
+				this.setState(state);
 			},
-			r => console.log('handelSubmit/Responce/Error', r)
-		);
+			r => {
+				this.setState({
+					error : true,
+					message : 'Bad response from server'
+				});
+				console.log('handelSubmit/Responce/Error', r);
+			});
 		//TODO IGOR : request to server
 	}
 
@@ -118,9 +153,38 @@ export default class Form extends Component {
 		return structs;
 	}
 
+	warns () {
+		if (!this.state.warn || !this.state.warn.length)
+			return null;
+
+		return map(this.state.warn, (table, row) => (
+			<div class='alert alert-warning'>
+			  <strong>Warning!</strong> No used colum {row.colum} in tabel {table}.
+			</div>
+		));
+	}
+
 	render() {
+		let alerts = '';
+
+		if (this.state.sucess) {
+			alerts = (
+					<div className='alert alert-success'>
+						<strong>Success!</strong> Files created.
+					</div>
+				);
+		} else if (this.state.error) {
+			alerts = (
+					<div className='alert alert-danger'>
+						<strong>Error!</strong> {this.state.message}.
+					</div>
+				);
+		}
+
 		return (
 			<div className='form' >
+				{ alerts }
+				{ this.warns() }
 				<form onSubmit={ this.handelSubmit.bind(this) } id='formId' >
 					<div className='col-lg-6' >
 						{ map(this.props.elements, (id, vals) => <FieldGroup key={	id } id={ id } { ...vals } />) }
