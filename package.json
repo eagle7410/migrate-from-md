@@ -1,6 +1,11 @@
 {
   "name": "migration-from-md",
   "version": "0.1.0",
+  "description": "Created yii2 migrations files from markdown text",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/eagle7410/migrate-from-md.git"
+  },
   "dependencies": {
     "dot": "^1.1.1",
     "express": "^4.14.1",
