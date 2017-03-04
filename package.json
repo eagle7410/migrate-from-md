@@ -6,6 +6,11 @@
     "type": "git",
     "url": "https://github.com/eagle7410/migrate-from-md.git"
   },
+  "keywords": [
+    "yii2",
+    "migrations",
+    "markdown"
+  ],
   "dependencies": {
     "dot": "^1.1.1",
     "express": "^4.14.1",
