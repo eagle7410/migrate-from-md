@@ -13,5 +13,14 @@
     "gulp-cssmin": "^0.1.7",
     "gulp-uglifyjs": "^0.6.2",
     "nodemon": "^1.11.0"
-  }
+  },
+  "author": {
+    "name": "Igor Stcherbina",
+    "email": "verycooleagle@gmail.com",
+    "skype": "eagleeagle7410"
+  },
+  "engines": {
+    "node": ">=7.5.0"
+  },
+  "_id" : "migration-from-md@0.1.0"
 }
