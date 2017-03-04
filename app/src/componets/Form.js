@@ -6,8 +6,7 @@ import FieldGroup from './FieldGroup';
 import { map, keys } from '../utils/Obj';
 import { save } from '../utils/Req';
 
-// TODO clear
-const prefix = 'http://localhost:3001/';
+const prefix = window.base ? (window.base + '/') : '/';
 const codes = {
 	1 : 'No exists path',
 	2 : 'No data in request',
@@ -81,12 +80,6 @@ export default class Form extends Component {
 		data.nameSpace = ns;
 
 		let  { nameSpace , path, struct } = data;
-		//TODO IGOR: clear
-		console.log('Data is', {
-			path      : path,
-			struct    : struct,
-			nameSpace : nameSpace
-		});
 
 		save(prefix + 'migration', {
 			path      : path,
@@ -117,7 +110,6 @@ export default class Form extends Component {
 				});
 				console.log('handelSubmit/Responce/Error', r);
 			});
-		//TODO IGOR : request to server
 	}
 
 	_cellText (cell) {
@@ -191,7 +183,7 @@ export default class Form extends Component {
 						<button id='submit' type='submit' className='btn btn-primary'>Submit</button>
 					</div>
 					<div className='col-lg-6' > <h3> Result markdown </h3>
-						<div id='markDownName' dangerouslySetInnerHTML={{	__html: Marked(this.state.markdown)	}} / >
+						<div id='markDownName' dangerouslySetInnerHTML={{	__html: Marked(this.state.markdown)	}} />
 					</div>
 				</form>
 			</div>
