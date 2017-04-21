@@ -1,36 +1,37 @@
 {
-  "name": "migration-from-md",
-  "version": "0.1.0",
-  "description": "Created yii2 migrations files from markdown text",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/eagle7410/migrate-from-md.git"
-  },
-  "keywords": [
-    "yii2",
-    "migrations",
-    "markdown"
-  ],
-  "dependencies": {
-    "dot": "^1.1.1",
-    "express": "^4.14.1",
-    "morgan": "^1.8.1",
-    "utils-igor": "^2.0.5"
-  },
-  "devDependencies": {
-    "gulp": "^3.9.1",
-    "gulp-concat": "^2.6.1",
-    "gulp-cssmin": "^0.1.7",
-    "gulp-uglifyjs": "^0.6.2",
-    "nodemon": "^1.11.0"
-  },
-  "author": {
-    "name": "Igor Stcherbina",
-    "email": "verycooleagle@gmail.com",
-    "skype": "eagleeagle7410"
-  },
-  "engines": {
-    "node": ">=7.5.0"
-  },
-  "_id" : "migration-from-md@0.1.0"
+	"name": "migration-from-md",
+	"version": "0.1.0",
+	"description": "Created yii2 migrations files from markdown text",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/eagle7410/migrate-from-md.git"
+	},
+	"keywords": [
+		"yii2",
+		"migrations",
+		"markdown"
+	],
+	"dependencies": {
+		"dot": "^1.1.1",
+		"express": "^4.14.1",
+		"morgan": "^1.8.1",
+		"body-parser": "^1.17.1",
+		"utils-igor": "^2.0.5"
+	},
+	"devDependencies": {
+		"gulp": "^3.9.1",
+		"gulp-concat": "^2.6.1",
+		"gulp-cssmin": "^0.1.7",
+		"gulp-uglifyjs": "^0.6.2",
+		"nodemon": "^1.11.0"
+	},
+	"author": {
+		"name": "Igor Stcherbina",
+		"email": "verycooleagle@gmail.com",
+		"skype": "eagleeagle7410"
+	},
+	"engines": {
+		"node": ">=7.5.0"
+	},
+	"_id": "migration-from-md@0.1.0"
 }
