@@ -253,7 +253,8 @@ const saveFile = (path, content) => new Promise(
 const saveToFiles = (data) => new Promise(
 	(resolve, reject) => {
 		let filesSaved = [];
-		fs.readFile(__dirname + '/../views/temp-first.php', 'utf8', (e, temp) => {
+		let template = process.env.tpl || 'temp-first';
+		fs.readFile(__dirname + `/../views/${template}.php`, 'utf8', (e, temp) => {
 			if (e) {
 				console.error(e);
 				return reject('noGetTemp');
